@@ -13,10 +13,14 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp \
-    QiOSDevice/qiosdevice.cpp
+        mainwindow.cpp
 
 HEADERS  += mainwindow.h \
-    QiOSDevice/qiosdevice.h
+            QiOSDevice/qiosdevice.h
 
 FORMS    += mainwindow.ui
+
+OBJECTIVE_HEADERS +=
+
+OBJECTIVE_SOURCES += \
+    QiOSDevice/qiosdevice.mm

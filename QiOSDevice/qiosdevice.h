@@ -3,6 +3,8 @@
 
 #include <QObject>
 
+class QiOSDevicePrivate;
+
 enum QiOSDeviceOrientation
 {
     QiOSDeviceOrientationUnknown,
@@ -19,11 +21,13 @@ class QiOSDevice : public QObject
     Q_OBJECT
 public:
     explicit QiOSDevice(QObject *parent = 0);
+    ~QiOSDevice();
 
-signals:
+protected:
+    QiOSDevicePrivate *const d_ptr;
 
-public slots:
-
+private:
+    Q_DECLARE_PRIVATE(QiOSDevice);
 };
 
 #endif // QIOSDEVICE_H
