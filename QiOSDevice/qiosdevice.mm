@@ -40,7 +40,7 @@ QiOSDevice::~QiOSDevice()
 
 QiOSDeviceOrientation QiOSDevice::orientation() const
 {
-    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    UIDeviceOrientation orientation = [d_ptr->device orientation];
     switch (orientation) {
         case UIDeviceOrientationUnknown:
             return QiOSDeviceOrientationUnknown;
@@ -69,12 +69,12 @@ bool QiOSDevice::isGeneratingDeviceOrientationNotifications() const
 
 void QiOSDevice::beginGeneratingDeviceOrientationNotifications()
 {
-    [d_ptr->device  beginGeneratingDeviceOrientationNotifications];
+    [d_ptr->device beginGeneratingDeviceOrientationNotifications];
 }
 
 void QiOSDevice::endGeneratingDeviceOrientationNotifications()
 {
-    [d_ptr->device  endGeneratingDeviceOrientationNotifications];
+    [d_ptr->device endGeneratingDeviceOrientationNotifications];
 }
 
 bool QiOSDevice::isMultitaskingSupported() const
@@ -105,6 +105,19 @@ QString QiOSDevice::model() const
 QString QiOSDevice::localizedModel() const
 {
     return QString([[d_ptr->device localizedModel] UTF8String]);
+}
+
+QiOSUserInterfaceIdiom QiOSDevice::userInterfaceIdiom() const
+{
+    switch ([d_ptr->device userInterfaceIdiom]) {
+        case UIUserInterfaceIdiomPad:
+            return QiOSUserInterfaceIdiomPad;
+        case UIUserInterfaceIdiomPhone:
+            return QiOSUserInterfaceIdiomPhone;
+            
+        default:
+            return QiOSUserInterfaceIdiomPhone;
+    }
 }
 
 #pragma mark - QiOSDevicePrivate

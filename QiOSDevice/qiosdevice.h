@@ -24,6 +24,11 @@ enum QiOSDeviceOrientation
     QiOSDeviceOrientationFaceDown
 };
 
+enum QiOSUserInterfaceIdiom {
+    QiOSUserInterfaceIdiomPhone,
+    QiOSUserInterfaceIdiomPad
+};
+
 class QiOSDevice : public QObject
 {
     Q_OBJECT
@@ -44,6 +49,8 @@ public:
     QString systemVersion() const;
     QString model() const;
     QString localizedModel() const;
+    
+    QiOSUserInterfaceIdiom userInterfaceIdiom() const;
     
 signals:
     void deviceOrientationChanged(QiOSDeviceOrientation orientation);
