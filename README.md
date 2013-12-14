@@ -12,7 +12,7 @@ You can simply determine device orientation
 
 ```cpp
 QiOSDevice device;
-qDebug() device.orientation();
+qDebug() << device.orientation();
 ```
 
 or observe device orientation changing
