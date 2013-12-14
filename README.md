@@ -1,5 +1,7 @@
 ### QiOS - set of Qt wrappers for native iOS stuff.
 
+![Sample app](https://github.com/AlexDenisov/QiOS/blob/master/QiOS_sample.png?raw=true).
+
 ##### QiOSDevice
 
 This wrapper provides all functionality provided by `UIDevice` class.
