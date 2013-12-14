@@ -1,3 +1,10 @@
+//
+//  QiOS
+//
+//  Created by AlexDenisov on 12/14/13.
+//  Copyright (c) 2013 AlexDenisov. All rights reserved.
+//
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
