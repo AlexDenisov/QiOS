@@ -22,6 +22,7 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
+    void updateInformation();
 
 public slots:
     void deviceOrientationChanged(QiOSDeviceOrientation orientation);
