@@ -23,6 +23,15 @@ public:
     explicit QiOSDevice(QObject *parent = 0);
     ~QiOSDevice();
 
+    QiOSDeviceOrientation orientation() const;
+    
+    bool isGeneratingDeviceOrientationNotifications() const;
+    void beginGeneratingDeviceOrientationNotifications();
+    void endGeneratingDeviceOrientationNotifications();
+    
+signals:
+    void deviceOrientationChanged(QiOSDeviceOrientation orientation);
+    
 protected:
     QiOSDevicePrivate *const d_ptr;
 

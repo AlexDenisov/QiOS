@@ -16,11 +16,13 @@ SOURCES += main.cpp\
         mainwindow.cpp
 
 HEADERS  += mainwindow.h \
-            QiOSDevice/qiosdevice.h
+            QiOSDevice/qiosdevice.h \
+    QiOSDevice/qiosdeviceobserver.h
 
 FORMS    += mainwindow.ui
 
 OBJECTIVE_HEADERS +=
 
 OBJECTIVE_SOURCES += \
-    QiOSDevice/qiosdevice.mm
+    QiOSDevice/qiosdevice.mm \
+    QiOSDevice/qiosdeviceobserver.mm
