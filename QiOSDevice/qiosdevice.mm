@@ -20,6 +20,8 @@ public:
 private:
     QiOSDeviceObserver *_observer;
     QiOSDevice *q_ptr;
+    
+    UIDevice *device;
 };
 
 QiOSDevice::QiOSDevice(QObject *parent) :
@@ -62,24 +64,55 @@ QiOSDeviceOrientation QiOSDevice::orientation() const
 
 bool QiOSDevice::isGeneratingDeviceOrientationNotifications() const
 {
-    return [[UIDevice currentDevice] isGeneratingDeviceOrientationNotifications];
+    return [d_ptr->device isGeneratingDeviceOrientationNotifications];
 }
 
 void QiOSDevice::beginGeneratingDeviceOrientationNotifications()
 {
-    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [d_ptr->device  beginGeneratingDeviceOrientationNotifications];
 }
 
 void QiOSDevice::endGeneratingDeviceOrientationNotifications()
 {
-    [[UIDevice currentDevice] endGeneratingDeviceOrientationNotifications];
+    [d_ptr->device  endGeneratingDeviceOrientationNotifications];
+}
+
+bool QiOSDevice::isMultitaskingSupported() const
+{
+    return [d_ptr->device isMultitaskingSupported];
+}
+
+QString QiOSDevice::name() const
+{
+    return QString([[d_ptr->device name] UTF8String]);
+}
+
+QString QiOSDevice::systemName() const
+{
+    return QString([[d_ptr->device systemName] UTF8String]);
+}
+
+QString QiOSDevice::systemVersion() const
+{
+    return QString([[d_ptr->device systemVersion] UTF8String]);
+}
+
+QString QiOSDevice::model() const
+{
+    return QString([[d_ptr->device model] UTF8String]);
+}
+
+QString QiOSDevice::localizedModel() const
+{
+    return QString([[d_ptr->device localizedModel] UTF8String]);
 }
 
 #pragma mark - QiOSDevicePrivate
 
 QiOSDevicePrivate::QiOSDevicePrivate(QObject *parent) :
     QObject(parent),
-    _observer([QiOSDeviceObserver new])
+    _observer([QiOSDeviceObserver new]),
+    device([UIDevice currentDevice])
 {
 }
 

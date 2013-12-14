@@ -9,6 +9,7 @@
 #define QIOSDEVICE_H
 
 #include <QObject>
+#include <QString>
 
 class QiOSDevicePrivate;
 
@@ -35,6 +36,14 @@ public:
     bool isGeneratingDeviceOrientationNotifications() const;
     void beginGeneratingDeviceOrientationNotifications();
     void endGeneratingDeviceOrientationNotifications();
+    
+    bool isMultitaskingSupported() const;
+    
+    QString name() const;
+    QString systemName() const;
+    QString systemVersion() const;
+    QString model() const;
+    QString localizedModel() const;
     
 signals:
     void deviceOrientationChanged(QiOSDeviceOrientation orientation);
