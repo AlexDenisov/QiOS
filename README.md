@@ -63,3 +63,7 @@ Contributions are welcome.
 Published under MIT license.
 
 See `LICENSE` file for details.
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/AlexDenisov/qios/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
